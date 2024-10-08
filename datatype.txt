@@ -1,0 +1,76 @@
+DataTypes:-
+Data types are a way to limit the type of data that can be stored in a table.
+
+Most widely used are:-
+
+1) Numeric - INT 
+2) String - VARCHAR
+3) Date - DATE 
+4) TimeStamp - TIMESTAMP
+4) Boolean - BOOLEAN
+5) Textual Json data - json
+6) Time - time
+
+Follow this link to learn more about DataTypes.
+https://www.postgresql.org/docs/current/datatype.html
+
+Constraint:-
+A constraint in PostgreSQL is a rule applied to a column. SQL allows you to define constraints on columns and tables. Constraints give you as much control over the data in your tables as you wish. If a user attempts to store data in a column that would violate a constraint, an error is raised. This applies even if the value came from the default value definition. 
+
+
+Some of the constraints are below:-
+
+Follow this link to learn more about DataTypes.
+https://www.postgresql.org/docs/current/ddl-constraints.html
+
+Primary Key:-
+. The PRIMARY KEY constraint uniquely identifies each
+record in a table.
+. Primary keys must contain UNIQUE values, and cannot
+contain NULL values.
+. A table can have only ONE primary key.
+
+CREATE TABLE products (
+    product_no integer UNIQUE NOT NULL,
+    name text,
+    price numeric
+);
+
+NOT NULL:- 
+. It ensure that value must be present.
+
+CREATE TABLE products (
+    product_no integer NOT NULL,
+    name text NOT NULL,
+    price numeric
+);
+
+UNIQUE:-
+. Unique constraints ensure that the data contained in a column, or a group of columns, is unique among all the rows in the table. The syntax is:
+
+CREATE TABLE products (
+    product_no integer UNIQUE,
+    name text,
+    price numeric
+);
+
+DEFAULT:-
+. It ensure that if user does not enter default value. Then, a default Value applied.
+
+CHECK:-
+. A check constraint is the most generic constraint type. It allows you to specify that the value in a certain column must satisfy a Boolean (truth-value) expression. A check constraint can also refer to several columns. For instance, to require positive product prices, you could use:
+
+CREATE TABLE products (
+    product_no integer,
+    name text,
+    price numeric CHECK (price > 0)
+);
+
+Foreign Keys:-
+A foreign key constraint specifies that the values in a column (or a group of columns) must match the values appearing in some row of another table. We say this maintains the referential integrity between two related tables.
+
+CREATE TABLE products (
+    product_no integer PRIMARY KEY,
+    name text,
+    price numeric
+);
